@@ -143,11 +143,13 @@ s)**.
 2. Генерирует **отчёт о покрытии** JaCoCo (`./gradlew jacocoDebugCoverage`).
 3. Собирает **Debug APK** (`./gradlew assembleDebug`).
 
-**Артефакты** (доступны во
-вкладке [Actions](https://github.com/nemtsevs/nsiay-tetris-android/actions) после успешной сборки):
+**Артефакты** — [Actions → Android CI](https://github.com/nemtsevs/nsiay-tetris-android/actions/workflows/ci.yml):
 
-- `nsiay-tetris-debug-apk`: ZIP-архив с установочным файлом (хранится 14 дней).
-- `coverage-report`: HTML-отчёт JaCoCo (с детализацией по классам и методам).
+1. Выберите последний успешный запуск (зелёная галочка).
+2. Прокрутите вниз до блока **Artifacts**.
+3. Скачайте:
+    - `nsiay-tetris-debug-apk`: установочный APK (14 дней).
+    - `coverage-report`: HTML-отчёт JaCoCo.
 
 > ⚠️ **Важно для Windows-разработчиков:**
 > Windows не сохраняет Unix-права (`chmod +x`) при клонировании. Если вы планируете пушить в GitHub
