@@ -149,6 +149,17 @@ s)**.
 - `nsiay-tetris-debug-apk`: ZIP-архив с установочным файлом (хранится 14 дней).
 - `coverage-report`: HTML-отчёт JaCoCo (с детализацией по классам и методам).
 
+> ⚠️ **Важно для Windows-разработчиков:**
+> Windows не сохраняет Unix-права (`chmod +x`) при клонировании. Если вы планируете пушить в GitHub
+> и использовать CI на Linux, выполните один раз в терминале Android Studio (в корне проекта):
+> ```bash
+> git update-index --chmod=+x gradlew
+> ```
+> Это выставит права `100755` для файла `gradlew` в git. Без этого шага GitHub Actions упадёт с
+> `./gradlew: Permission denied`.
+>
+> **Проверка:** `git ls-files -s gradlew` → должен показать `100755`.
+
 ## 🎮 Управление
 
 | Действие                     | Жест                     |
