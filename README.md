@@ -32,6 +32,7 @@
 - **JUnit 4** (Unit-тесты и Instrumented-тесты).
 - **JaCoCo** (Анализ покрытия кода тестами).
 - **Gradle (Kotlin DSL)** (сборка проекта, динамическое именование APK).
+- **GitHub Actions** (CI/CD: сборка, тесты, покрытие).
 
 ## 🏗 Архитектура
 
@@ -131,6 +132,22 @@ HTML-отчет появится по пути `app/build/reports/jacoco/jacocoD
 В меню Android Studio выберите **Build** -> **Generate App Bundles or APKs** -> **Generate APK (
 s)**.
 Готовый файл появится в `app/build/outputs/apk/debug/NsiayTetris-debug.apk`.
+
+## ⚙️ CI/CD
+
+Проект использует **GitHub Actions** для автоматической проверки качества при каждом push в `main`.
+
+**Workflow** (`.github/workflows/ci.yml`):
+
+1. Запускает **Unit-тесты** (`./gradlew test`).
+2. Генерирует **отчёт о покрытии** JaCoCo (`./gradlew jacocoDebugCoverage`).
+3. Собирает **Debug APK** (`./gradlew assembleDebug`).
+
+**Артефакты** (доступны во
+вкладке [Actions](https://github.com/nemtsevs/nsiay-tetris-android/actions) после успешной сборки):
+
+- `nsiay-tetris-debug-apk`: ZIP-архив с установочным файлом (хранится 14 дней).
+- `coverage-report`: HTML-отчёт JaCoCo (с детализацией по классам и методам).
 
 ## 🎮 Управление
 
